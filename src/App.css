@@ -33,6 +33,11 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
 .right-arrow {
   right: 140px;
 }

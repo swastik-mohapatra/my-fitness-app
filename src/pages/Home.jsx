@@ -5,13 +5,13 @@ import Exercises from '../components/Exercises';
 import SearchExercises from '../components/SearchExercises';
 import HeroBanner from '../components/HeroBanner';
 
-const Home = () => {
+const Home = ({ darkMode }) => {
   const [exercises, setExercises] = useState([]);
   const [bodyPart, setBodyPart] = useState('all');
 
   return (
     <Box>
-      <HeroBanner />
+      <HeroBanner darkMode={darkMode} />
       <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
       <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />
     </Box>
