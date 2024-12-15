@@ -13,7 +13,7 @@ const Home = ({ darkMode }) => {
     <Box>
       <HeroBanner darkMode={darkMode} />
       <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-      <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />
+      <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} darkMode={darkMode} />
     </Box>
   );
 };

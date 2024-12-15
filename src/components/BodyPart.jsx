@@ -13,7 +13,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart, imageUrl }) => (
       sx={
           bodyPart === item
             ? {
-              borderTop: "4px solid #FF2625",
+              borderTop: "7px solid #FF2625",
               background: "#fff",
               borderBottomLeftRadius: "20px",
               width: "270px",

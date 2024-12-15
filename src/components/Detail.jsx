@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React from 'react';
 import { Typography, Stack, Button } from '@mui/material';
 
@@ -5,7 +6,7 @@ import BodyPartImage from '../assets/icons/body-part.png';
 import TargetImage from '../assets/icons/target.png';
 import EquipmentImage from '../assets/icons/equipment.png';
 
-const Detail = ({ exerciseDetail }) => {
+const Detail = ({ exerciseDetail, darkMode }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
   const extraDetail = [
@@ -30,7 +31,7 @@ const Detail = ({ exerciseDetail }) => {
         <Typography sx={{ fontSize: { lg: '64px', xs: '30px' } }} fontWeight={700} textTransform="capitalize">
           {name}
         </Typography>
-        <Typography sx={{ fontSize: { lg: '24px', xs: '18px' } }} color="#4F4C4C">
+        <Typography sx={{ fontSize: { lg: '24px', xs: '18px' } }} color={darkMode ? 'white' : "#4F4C4C"}>
           Exercises keep you strong.{' '}
           <span style={{ textTransform: 'capitalize' }}>{name}</span> bup is one
           of the best <br /> exercises to target your {target}. It will help you improve your{' '}
