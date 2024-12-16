@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable quotes */
 import React, { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
@@ -69,16 +70,30 @@ const Exercises = ({ exercises, setExercises, bodyPart, darkMode }) => {
           <ExerciseCard key={idx} exercise={exercise} />
         ))}
       </Stack>
-      <Stack sx={{ mt: { lg: "114px", xs: "70px" } }} alignItems="center">
+      <Stack sx={{ mt: { lg: "105px", xs: "70px" } }} alignItems="center">
         {exercises.length > 9 && (
           <Pagination
-            color={darkMode ? "primary" : "standard"}
+            color="standard"
             shape="rounded"
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
             onChange={paginate}
             size="large"
+            sx={{
+              "& .MuiPaginationItem-root": {
+                color: darkMode ? "#fff" : "inherit",
+                backgroundColor: darkMode ? "#333" : "inherit",
+                borderColor: darkMode ? "#fff" : "inherit",
+              },
+              "& .MuiPaginationItem-root.Mui-selected": {
+                backgroundColor: darkMode ? "#555" : "rgba(0, 0, 0, 0.08)",
+                color: darkMode ? "#fff" : "#1976d2",
+              },
+              "& .MuiPaginationItem-root:hover": {
+                backgroundColor: darkMode ? "#444" : "rgba(0, 0, 0, 0.1)",
+              },
+            }}
           />
         )}
       </Stack>
