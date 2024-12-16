@@ -55,7 +55,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, darkMode }) => {
         mb="49px"
         textAlign="center"
       >
-        Awesome Exercise You <br /> Should Know
+        Awesome Exercises You <br /> Should Know
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
