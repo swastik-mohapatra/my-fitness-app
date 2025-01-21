@@ -32,7 +32,6 @@ const bodyPartImages = {
   waist,
 };
 
-
 const HorizontalScrollbar = ({
   data,
   bodyParts,
