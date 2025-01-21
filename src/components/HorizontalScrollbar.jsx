@@ -1,12 +1,9 @@
 /* eslint-disable quotes */
-import React, { useContext } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import React from "react";
 import { Box } from "@mui/material";
 
 import ExerciseCard from "./ExerciseCard";
 import BodyPart from "./BodyPart";
-import RightArrowIcon from "../assets/icons/right-arrow.png";
-import LeftArrowIcon from "../assets/icons/left-arrow.png";
 
 // Import body part images directly using ES6 import syntax
 import all from "../assets/icons/gym2.png";
@@ -21,7 +18,6 @@ import upperArms from "../assets/icons/arms.png";
 import upperLegs from "../assets/icons/legs.png";
 import waist from "../assets/icons/abs.png";
 
-// Define a mapping between body part names and their corresponding image URLs
 const bodyPartImages = {
   all,
   back,
@@ -36,29 +32,6 @@ const bodyPartImages = {
   waist,
 };
 
-const LeftArrow = () => {
-  const { scrollPrev } = useContext(VisibilityContext);
-
-  const handleClick = () => scrollPrev();
-
-  return (
-    <Box onClick={handleClick} className="right-arrow">
-      <img src={LeftArrowIcon} alt="right-arrow" />
-    </Box>
-  );
-};
-
-const RightArrow = () => {
-  const { scrollNext } = useContext(VisibilityContext);
-
-  const handleClick = () => scrollNext();
-
-  return (
-    <Box onClick={handleClick} className="left-arrow">
-      <img src={RightArrowIcon} alt="right-arrow" />
-    </Box>
-  );
-};
 
 const HorizontalScrollbar = ({
   data,
@@ -73,7 +46,6 @@ const HorizontalScrollbar = ({
       itemId={item.id || item}
       title={item.id || item}
       m="0 30px"
-      display="flex"
     >
       {bodyParts ? (
         <BodyPart
@@ -90,9 +62,28 @@ const HorizontalScrollbar = ({
   );
 
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    <Box
+      sx={{
+        display: "flex",
+        overflowX: "auto",
+        whiteSpace: "nowrap",
+        gap: "20px",
+        padding: "10px",
+        scrollbarWidth: "thin",
+        "&::-webkit-scrollbar": {
+          height: "8px",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: darkMode ? "#555" : "#ccc",
+          borderRadius: "4px",
+        },
+        "&::-webkit-scrollbar-track": {
+          background: "transparent",
+        },
+      }}
+    >
       {data?.map(renderItem)}
-    </ScrollMenu>
+    </Box>
   );
 };
 
